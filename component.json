@@ -1,0 +1,220 @@
+{
+    "title": "Storage Transfer",
+    "description": "Transfers data from external data sources to a Google Cloud Storage bucket or between Google Cloud Storage buckets.",
+    "docsUrl": "https://cloud.google.com/storage-transfer/docs",
+    "url": "https://api.apis.guru/v2/specs/googleapis.com/storagetransfer/v1/swagger.json",
+    "envVars": {
+        "OAUTH_CLIENT_ID": {
+            "description": "OAuth Client ID"
+        },
+        "OAUTH_CLIENT_SECRET": {
+            "description": "OAuth Client Secret"
+        }
+    },
+    "credentials": {
+        "fields": {
+            "server": {
+                "label": "Server",
+                "viewClass": "SelectView",
+                "model": [
+                    "https://storagetransfer.googleapis.com/",
+                    "--- Custom URL"
+                ],
+                "required": true
+            },
+            "otherServer": {
+                "label": "Custom Server URL",
+                "viewClass": "TextFieldView"
+            },
+            "Oauth2": {
+                "label": "Oauth 2.0 authentication",
+                "viewClass": "OAuthFieldView"
+            }
+        },
+        "oauth2": {
+            "client_id": "{{OAUTH_CLIENT_ID}}",
+            "client_secret": "{{OAUTH_CLIENT_SECRET}}",
+            "auth_uri": "https://accounts.google.com/o/oauth2/auth"
+        }
+    },
+    "triggers": {
+        "startFlow": {
+            "main": "./lib/triggers/startFlow.js",
+            "type": "polling",
+            "title": "Start Flow",
+            "fields": {}
+        }
+    },
+    "actions": {
+        "storagetransfer_googleServiceAccounts_get": {
+            "main": "./lib/actions/storagetransfer_googleServiceAccounts_get.js",
+            "title": "Returns the Google service account that is used by Storage Transfer\nService to access buckets in the project where transfers\nrun or in other projects. Each Google service account is associated\nwith one Google Cloud Platform Console project. Users\nshould add this service account to the Google Cloud Storage bucket\nACLs to grant access to Storage Transfer Service. This service\naccount is created and owned by Storage Transfer Service and can\nonly be used by Storage Transfer Service.",
+            "description": "Returns the Google service account that is used by Storage Transfer\nService to access buckets in the project where transfers\nrun or in other projects. Each Google service account is associated\nwith one Google Cloud Platform Console project. Users\nshould add this service account to the Google Cloud Storage bucket\nACLs to grant access to Storage Transfer Service. This service\naccount is created and owned by Storage Transfer Service and can\nonly be used by Storage Transfer Service.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/storagetransfer_googleServiceAccounts_get.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "storagetransfer_transferJobs_list": {
+            "main": "./lib/actions/storagetransfer_transferJobs_list.js",
+            "title": "Lists transfer jobs.",
+            "description": "Lists transfer jobs.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/storagetransfer_transferJobs_list.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "storagetransfer_transferJobs_create": {
+            "main": "./lib/actions/storagetransfer_transferJobs_create.js",
+            "title": "Creates a transfer job that runs periodically.",
+            "description": "Creates a transfer job that runs periodically.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/storagetransfer_transferJobs_create.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "storagetransfer_transferJobs_get": {
+            "main": "./lib/actions/storagetransfer_transferJobs_get.js",
+            "title": "Gets a transfer job.",
+            "description": "Gets a transfer job.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/storagetransfer_transferJobs_get.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "storagetransfer_transferJobs_patch": {
+            "main": "./lib/actions/storagetransfer_transferJobs_patch.js",
+            "title": "Updates a transfer job. Updating a job's transfer spec does not affect\ntransfer operations that are running already. Updating the scheduling\nof a job is not allowed.",
+            "description": "Updates a transfer job. Updating a job's transfer spec does not affect\ntransfer operations that are running already. Updating the scheduling\nof a job is not allowed.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/storagetransfer_transferJobs_patch.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "storagetransfer_transferOperations_delete": {
+            "main": "./lib/actions/storagetransfer_transferOperations_delete.js",
+            "title": "This method is not supported and the server returns `UNIMPLEMENTED`.",
+            "description": "This method is not supported and the server returns `UNIMPLEMENTED`.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/storagetransfer_transferOperations_delete.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "storagetransfer_transferOperations_get": {
+            "main": "./lib/actions/storagetransfer_transferOperations_get.js",
+            "title": "Gets the latest state of a long-running operation.  Clients can use this\nmethod to poll the operation result at intervals as recommended by the API\nservice.",
+            "description": "Gets the latest state of a long-running operation.  Clients can use this\nmethod to poll the operation result at intervals as recommended by the API\nservice.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/storagetransfer_transferOperations_get.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "storagetransfer_transferOperations_cancel": {
+            "main": "./lib/actions/storagetransfer_transferOperations_cancel.js",
+            "title": "Cancels a transfer. Use the get method to check whether the cancellation succeeded or whether the operation completed despite cancellation.",
+            "description": "Cancels a transfer. Use the get method to check whether the cancellation succeeded or whether the operation completed despite cancellation.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/storagetransfer_transferOperations_cancel.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "storagetransfer_transferOperations_pause": {
+            "main": "./lib/actions/storagetransfer_transferOperations_pause.js",
+            "title": "Pauses a transfer operation.",
+            "description": "Pauses a transfer operation.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/storagetransfer_transferOperations_pause.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "storagetransfer_transferOperations_resume": {
+            "main": "./lib/actions/storagetransfer_transferOperations_resume.js",
+            "title": "Resumes a transfer operation that is paused.",
+            "description": "Resumes a transfer operation that is paused.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/storagetransfer_transferOperations_resume.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        }
+    }
+}
